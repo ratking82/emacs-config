@@ -20,3 +20,4 @@
 (require 'base-global-keys)
 
 (require 'lang-python)
+(put 'downcase-region 'disabled nil)
