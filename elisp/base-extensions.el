@@ -502,38 +502,38 @@
 
 (use-package lua-mode)
 
-(use-package moos-mode
-  :load-path "elisp/moos-mode"
-  :ensure nil
-  :mode "\\.moos\\'")
+;; (use-package moos-mode
+;;   :load-path "elisp/moos-mode"
+;;   :ensure nil
+;;   :mode "\\.moos\\'")
 
 (use-package org-download)
 
-(use-package rtags
-  :config
-  (progn
-    (unless (rtags-executable-find "rc") (error "Binary rc is not installed!"))
-    (unless (rtags-executable-find "rdm") (error "Binary rdm is not installed!"))
+;; (use-package rtags
+;;   :config
+;;   (progn
+;;     (unless (rtags-executable-find "rc") (error "Binary rc is not installed!"))
+;;     (unless (rtags-executable-find "rdm") (error "Binary rdm is not installed!"))
 
-    (define-key c-mode-base-map (kbd "M-.") 'rtags-find-symbol-at-point)
-    (define-key c-mode-base-map (kbd "M-,") 'rtags-find-references-at-point)
-    (define-key c-mode-base-map (kbd "M-?") 'rtags-display-summary)
-    (rtags-enable-standard-keybindings)
+;;     (define-key c-mode-base-map (kbd "M-.") 'rtags-find-symbol-at-point)
+;;     (define-key c-mode-base-map (kbd "M-,") 'rtags-find-references-at-point)
+;;     (define-key c-mode-base-map (kbd "M-?") 'rtags-display-summary)
+;;     (rtags-enable-standard-keybindings)
 
-    (setq rtags-use-helm t)
-    (setq rtags-display-result-backend 'helm)
+;;     (setq rtags-use-helm t)
+;;     (setq rtags-display-result-backend 'helm)
 
-    (setq rtags-autostart-diagnostics t)
-    (rtags-diagnostics)
-    (setq rtags-completions-enabled t)
-    (push 'company-rtags company-backends)
+;;     (setq rtags-autostart-diagnostics t)
+;;     (rtags-diagnostics)
+;;     (setq rtags-completions-enabled t)
+;;     (push 'company-rtags company-backends)
 
-    ;; Shutdown rdm when leaving emacs.
-    (add-hook 'kill-emacs-hook 'rtags-quit-rdm)
-    )
-  :hook
-  ((c-mode . 'rtags-start-process-unless-running)
-   (c++-mode . 'rtags-start-process-unless-running)))
+;;     ;; Shutdown rdm when leaving emacs.
+;;     (add-hook 'kill-emacs-hook 'rtags-quit-rdm)
+;;     )
+;;   :hook
+;;   ((c-mode . 'rtags-start-process-unless-running)
+;;    (c++-mode . 'rtags-start-process-unless-running)))
 
 ;; ;; TODO: Has no coloring! How can I get coloring?
 ;; (use-package helm-rtags
