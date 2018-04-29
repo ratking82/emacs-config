@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- column-number-mode
- revert-buffer
- helm-recentf
- smartparens-mode
- recentf-open-files
- helm-occur
- magit-jump-to-untracked
+ flycheck-buffer
+ flycheck-mode
+ flycheck-select-checker
+ cmake-ide-compile
+ flycheck-info
+ rtags-start-process-unless-running
+ exec-path-from-shell-initialize
 )
 
 ;; ----- smex-data -----
@@ -15,11 +15,54 @@
  (helm-occur . 12)
  (locate . 1)
  (dired-find-file . 1)
- (recentf-open-files . 2)
+ (recentf-open-files . 3)
  (downcase-dwim . 1)
  (magit-jump-to-untracked . 1)
- (smartparens-mode . 1)
+ (smartparens-mode . 2)
  (helm-recentf . 1)
- (column-number-mode . 4)
+ (column-number-mode . 5)
  (revert-buffer . 1)
+ (magit-init . 1)
+ (magit-clone . 2)
+ (eshell . 3)
+ (compile . 4)
+ (find-name-dired . 3)
+ (goto-line . 2)
+ (helm-swoop . 3)
+ (package-install . 2)
+ (package-install-selected-packages . 2)
+ (helm-show-kill-ring . 5)
+ (org-brain-headline-to-file . 1)
+ (yas-new-snippet . 1)
+ (yas-insert-snippet . 1)
+ (newline . 1)
+ (neotree . 1)
+ (proced . 1)
+ (shell-command . 2)
+ (make-frame . 1)
+ (term . 2)
+ (projectile-switch-to-buffer-other-frame . 1)
+ (ediff . 1)
+ (rtags-start-process-unless-running . 8)
+ (list-load-path-shadows . 5)
+ (rtags-quit-rdm . 1)
+ (kill-emacs . 1)
+ (customize . 1)
+ (save-buffers-kill-emacs . 2)
+ (rtags . 3)
+ (rtags-find-symbol . 1)
+ (rtags-include-file . 1)
+ (rtags-find-virtuals-at-point . 1)
+ (recover-file . 1)
+ (customize-mode . 1)
+ (customize-group . 2)
+ (cmake-ide-compile . 26)
+ (c++-mode . 1)
+ (exec-path-from-shell-initialize . 2)
+ (cmake-command-run . 4)
+ (cmake-ide-run-cmake . 1)
+ (flycheck-mode . 5)
+ (flycheck-buffer . 8)
+ (flycheck-info . 1)
+ (flycheck-select-checker . 4)
 )

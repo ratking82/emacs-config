@@ -101,12 +101,16 @@
   ("C-c C->" . mc/mark-all-like-this))
 
 (use-package neotree
+  :bind
+  ("<f8>" . 'neotree-toggle)
   :config
   (setq neo-theme 'arrow
-        neotree-smart-optn t
-        neo-window-fixed-size nil)
+        neo-smart-open t
+        neo-window-fixed-size nil
+	projectile-switch-project-action 'neotree-projectile-action)
   ;; Disable linum for neotree
-  (add-hook 'neo-after-create-hook 'disable-neotree-hook))
+  ;;(add-hook 'neo-after-create-hook 'disable-neotree-hook)
+  )
 
 (use-package org
   :config
@@ -508,65 +512,5 @@
 ;;   :mode "\\.moos\\'")
 
 (use-package org-download)
-
-;; (use-package rtags
-;;   :config
-;;   (progn
-;;     (unless (rtags-executable-find "rc") (error "Binary rc is not installed!"))
-;;     (unless (rtags-executable-find "rdm") (error "Binary rdm is not installed!"))
-
-;;     (define-key c-mode-base-map (kbd "M-.") 'rtags-find-symbol-at-point)
-;;     (define-key c-mode-base-map (kbd "M-,") 'rtags-find-references-at-point)
-;;     (define-key c-mode-base-map (kbd "M-?") 'rtags-display-summary)
-;;     (rtags-enable-standard-keybindings)
-
-;;     (setq rtags-use-helm t)
-;;     (setq rtags-display-result-backend 'helm)
-
-;;     (setq rtags-autostart-diagnostics t)
-;;     (rtags-diagnostics)
-;;     (setq rtags-completions-enabled t)
-;;     (push 'company-rtags company-backends)
-
-;;     ;; Shutdown rdm when leaving emacs.
-;;     (add-hook 'kill-emacs-hook 'rtags-quit-rdm)
-;;     )
-;;   :hook
-;;   ((c-mode . 'rtags-start-process-unless-running)
-;;    (c++-mode . 'rtags-start-process-unless-running)))
-
-;; ;; TODO: Has no coloring! How can I get coloring?
-;; (use-package helm-rtags
-;;   :ensure helm :ensure rtags
-;;   :config
-;;     (setq rtags-display-result-backend 'helm))
-
-;; ;; Use rtags for auto-completion.
-;; (use-package company-rtags
-;;   :ensure company :ensure rtags
-;;   :config
-;;   (progn
-;;     (setq rtags-autostart-diagnostics t)
-;;     (rtags-diagnostics)
-;;     (setq rtags-completions-enabled t)
-;;     (push 'company-rtags company-backends)
-;;     ))
-
-;; Live code checking.
-;; (req-package flycheck-rtags
-;;   :require flycheck rtags
-;;   :config
-;;   (progn
-;;     ;; ensure that we use only rtags checking
-;;     ;; https://github.com/Andersbakken/rtags#optional-1
-;;     (defun setup-flycheck-rtags ()
-;;       (flycheck-select-checker 'rtags)
-;;       (setq-local flycheck-highlighting-mode nil) ;; RTags creates more accurate overlays.
-;;       (setq-local flycheck-check-syntax-automatically nil)
-;;       (rtags-set-periodic-reparse-timeout 2.0)  ;; Run flycheck 2 seconds after being idle.
-;;       )
-;;     (add-hook 'c-mode-hook #'setup-flycheck-rtags)
-;;     (add-hook 'c++-mode-hook #'setup-flycheck-rtags)
-;;     ))
 
 (provide 'base-extensions)
