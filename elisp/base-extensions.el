@@ -515,4 +515,6 @@
 
 (use-package org-download)
 
+(use-package diminish)
+
 (provide 'base-extensions)
