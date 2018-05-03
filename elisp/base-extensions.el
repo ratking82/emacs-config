@@ -379,6 +379,7 @@
         (expand-file-name "projectile-bookmarks.eld" temp-dir))
   (setq projectile-switch-project-action #'projectile-dired)
   :config
+  (setq projectile-mode-line '(:eval (format " Proj[%s]" (projectile-project-name))))
   (projectile-global-mode))
 
 (use-package recentf
