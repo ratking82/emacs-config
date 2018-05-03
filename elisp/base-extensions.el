@@ -469,7 +469,7 @@
   :config
   (openwith-mode t)
   (setq openwith-associations '(("\\.pdf\\'" "evince" (file))
-				("\\.\\(?:jp?g|png|tiff\\)\\'" "display" (file)))))
+				("\\.\\(?:jp?g\\|png\\|tif\\)\\'" "display" (file)))))
 
 
 (use-package cmake-mode
