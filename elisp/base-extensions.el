@@ -508,13 +508,23 @@
 
 (use-package lua-mode)
 
-;; (use-package moos-mode
-;;   :load-path "elisp/moos-mode"
-;;   :ensure nil
-;;   :mode "\\.moos\\'")
+;; Emacs major mode for MOOS
+;; This gives some strange errors
+(use-package moos-mode
+  :disabled t
+  :load-path "elisp/moos-mode"
+  :ensure nil
+  :mode "\\.moos\\'")
 
 (use-package org-download)
 
 (use-package diminish)
+
+(use-package golden-ratio
+  :disabled t
+  :ensure t
+  :diminish golden-ratio-mode
+  :init
+  (golden-ratio-mode 1))
 
 (provide 'base-extensions)
