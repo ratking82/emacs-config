@@ -47,3 +47,7 @@ flycheck_*.el
 # Ignore directories
 /private/
 .custom.el
+/org-clock-save.el
+/smex-items
+/url/cookies
+/recentf
