@@ -481,7 +481,10 @@
   (global-whitespace-mode t))
 
 (use-package markdown-mode
-  :mode "\\.md\\'")
+  :commands (markdown-mode gfm-mode)
+  :mode (("\\.md\\'" . markdown-mode)
+	 ("README\\.md\\'" . gfm-mode))
+  :init (setq markdown-command "pandoc"))
 
 (use-package abbrev
   :ensure nil
