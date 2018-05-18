@@ -537,4 +537,9 @@
 
 (use-package nyan-mode)
 
+(use-package google-this
+  :defer t
+  :config
+  (google-this-mode 1))
+
 (provide 'base-extensions)
