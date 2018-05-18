@@ -535,4 +535,6 @@
   :init
   (golden-ratio-mode 1))
 
+(use-package nyan-mode)
+
 (provide 'base-extensions)
