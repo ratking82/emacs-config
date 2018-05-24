@@ -99,5 +99,9 @@
 ;; Enable global hilight current line
 (global-hl-line-mode 1)
 
+;; Do not use TABS for indentation
+;; Prefer spaces
+(setq-default indent-tabs-mode nil)
+
 (provide 'base)
 ;;; base ends here
