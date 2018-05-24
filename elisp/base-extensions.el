@@ -496,6 +496,7 @@
   :init (setq markdown-command "pandoc"))
 
 (use-package abbrev
+  :ensure nil
   :diminish abbrev-mode
   :init
   (setq abbrev-file-name "~/.emacs.d/abbrev_defs")
