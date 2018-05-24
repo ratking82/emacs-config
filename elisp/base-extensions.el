@@ -21,6 +21,7 @@
   (setq ediff-diff-options "-w"))
 
 (use-package exec-path-from-shell
+  :defer t
   :config
   ;; Add GOPATH to shell
   (when (memq window-system '(mac ns x))
@@ -455,6 +456,7 @@
   (setq org-brain-visualize-default-choices 'all)
   (setq org-brain-title-max-length 12)
   :bind ("C-c b" . org-brain-visualize))
+
 (use-package org-ref
   :defer t
   :init
@@ -471,6 +473,7 @@
 	bibtex-completion-notes-path "~/Dropbox/bibliography/helm-bibtex-notes"))
 
 (use-package openwith
+  :defer t
   :config
   (openwith-mode t)
   (setq openwith-associations '(("\\.pdf\\'" "evince" (file))
@@ -481,6 +484,7 @@
   :mode "CMakeLists\\.txt\\'" "\\.cmake\\'")
 
 (use-package whitespace
+  :diminish whitespace
   :config
   (setq whitespace-style `(face empty tabs lines-tail trailing))
   (global-whitespace-mode t))
@@ -492,7 +496,7 @@
   :init (setq markdown-command "pandoc"))
 
 (use-package abbrev
-  :ensure nil
+  :diminish abbrev-mode
   :init
   (setq abbrev-file-name "~/.emacs.d/abbrev_defs")
   :config
@@ -500,8 +504,8 @@
   (setq-default abbrev-mode t))
 
 (use-package flyspell
-  :ensure t
   :defer t
+  :diminish flyspell
   ;; :init
   ;; (progn
   ;;   (add-hook 'prog-mode-hook 'flyspell-prog-mode)
@@ -514,7 +518,8 @@
   ((prog-mode . flyspell-prog-mode)
    (text-mode . flyspell-mode)))
 
-(use-package lua-mode)
+(use-package lua-mode
+  :defer t)
 
 ;; Emacs major mode for MOOS
 ;; This gives some strange errors
@@ -535,11 +540,20 @@
   :init
   (golden-ratio-mode 1))
 
-(use-package nyan-mode)
+(use-package nyan-mode
+  :defer t
+  :init
+  (nyan-mode 1))
 
 (use-package google-this
   :defer t
   :config
   (google-this-mode 1))
+
+(use-package google-translate-smooth-ui
+  :defer t
+  :ensure google-translate
+  :bind
+  ("C-c t" . 'google-translate-smooth-translate))
 
 (provide 'base-extensions)
