@@ -46,6 +46,7 @@
       fringes-outside-margins            t
       x-select-enable-clipboard          t
       use-package-always-ensure          t
+      use-package-compute-statistics     t
       debug-on-error                     t)
 
 ;; Bookmarks
