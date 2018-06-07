@@ -484,6 +484,7 @@
   :config
   (pdf-tools-install))
 
+(use-package interleave)
 
 (use-package cmake-mode
   :mode "CMakeLists\\.txt\\'" "\\.cmake\\'")
