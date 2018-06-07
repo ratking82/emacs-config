@@ -21,7 +21,6 @@
   (setq ediff-diff-options "-w"))
 
 (use-package exec-path-from-shell
-  :defer t
   :config
   ;; Add GOPATH to shell
   (when (memq window-system '(mac ns x))
