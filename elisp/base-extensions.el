@@ -69,6 +69,7 @@
   :bind
   ("C-x c s" . helm-swoop))
 
+(use-package helm-org-rifle)
 
 (use-package hlinum
   :config
