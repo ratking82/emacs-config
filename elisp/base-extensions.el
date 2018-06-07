@@ -473,11 +473,11 @@
 	bibtex-completion-notes-path "~/Dropbox/bibliography/helm-bibtex-notes"))
 
 (use-package openwith
-  :defer t
   :config
   (openwith-mode t)
-  (setq openwith-associations '(("\\.pdf\\'" "evince" (file))
-				("\\.\\(?:jp?g\\|png\\|tif\\)\\'" "display" (file)))))
+  (setq openwith-associations '(;;("\\.pdf\\'" "evince" (file))
+                                ("\\.\\(?:jp?g\\|png\\|tif\\)\\'" "display" (file)))))
+
 
 
 (use-package cmake-mode
