@@ -478,6 +478,11 @@
   (setq openwith-associations '(;;("\\.pdf\\'" "evince" (file))
                                 ("\\.\\(?:jp?g\\|png\\|tif\\)\\'" "display" (file)))))
 
+;; Much better package then using DocView to view PDFs
+;; Also, this beats opening PDFs in external viewer!
+(use-package pdf-tools
+  :config
+  (pdf-tools-install))
 
 
 (use-package cmake-mode
