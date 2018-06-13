@@ -54,7 +54,8 @@
          ("C-x c p" . helm-projectile-ag)
          ("C-x c k" . helm-show-kill-ring)
          :map helm-map
-         ("<tab>" . helm-execute-persistent-action)))
+         ("<tab>" . helm-execute-persistent-action)
+         ("C-z" . helm-select-action)))
 
 (use-package helm-ag)
 
