@@ -493,7 +493,8 @@
 (use-package whitespace
   :diminish whitespace
   :config
-  (setq whitespace-style `(face empty tabs lines-tail trailing))
+  (setq whitespace-style `(face empty tabs lines-tail trailing)
+        whitespace-line-column 80)
   (global-whitespace-mode t))
 
 (use-package markdown-mode
@@ -563,5 +564,7 @@
   :ensure google-translate
   :bind
   ("C-c t" . 'google-translate-smooth-translate))
+
+(use-package clang-format)
 
 (provide 'base-extensions)
