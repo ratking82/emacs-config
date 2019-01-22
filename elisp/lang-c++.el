@@ -19,10 +19,13 @@
     (define-key c-mode-base-map (kbd "M-?") 'rtags-display-summary)
 
     (setq rtags-use-helm t)
+    (setq rtags-completions-enabled t)
 
     ;; Shutdown rdm when leaving emacs.
     (add-hook 'kill-emacs-hook 'rtags-quit-rdm)
-    ))
+    )
+  :hook
+  (c++-mode . 'rtags-start-process-unless-running))
 
 ;; TODO: Has no coloring! How can I get coloring?
 (use-package helm-rtags
@@ -46,15 +49,20 @@
     ;; https://github.com/Andersbakken/rtags#optional-1
     (defun setup-flycheck-rtags ()
       (flycheck-select-checker 'rtags)
-      (setq-local flycheck-highlighting-mode nil) ;; RTags creates more accurate overlays.
+      (setq-local flycheck-highlighting-mode nil) ;; RTags creates
+                                                  ;; more accurate
+                                                  ;; overlays.
       (setq-local flycheck-check-syntax-automatically nil)
-      (rtags-set-periodic-reparse-timeout 2.0)  ;; Run flycheck 2 seconds after being idle.
+      (rtags-set-periodic-reparse-timeout 2.0)  ;; Run flycheck 2
+                                                ;; seconds after being
+                                                ;; idle.
       )
     (add-hook 'c-mode-hook #'setup-flycheck-rtags)
     (add-hook 'c++-mode-hook #'setup-flycheck-rtags)
     )
   )
 
+;; Is this useful?
 (use-package cmake-ide
   :config
   (cmake-ide-setup))
