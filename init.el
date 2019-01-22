@@ -16,10 +16,12 @@
 
 (require 'base)
 (require 'base-theme)
+(require 'org-custom)
 (require 'base-extensions)
 (require 'base-functions)
 (require 'base-global-keys)
 
-(require 'lang-python)
+
+;; (require 'lang-python)
 (require 'lang-c++)
 (put 'downcase-region 'disabled nil)
