@@ -1,6 +1,6 @@
-(package-initialize)
+;(package-initialize)
 (add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages/")
+             '("melpa" . "https://melpa.org/packages/")
              '("elpy" . "http://jorgenschaefer.github.io/packages/"))
 
 (when (not package-archive-contents)
