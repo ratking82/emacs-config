@@ -8,6 +8,7 @@
 
 ;; (c++-mode . 'rtags-start-process-unless-running)))
 (use-package rtags
+  :commands 'rtags-start-process-unless-running
   :config
   (progn
     (unless (rtags-executable-find "rc") (error "Binary rc is not installed!"))
@@ -19,9 +20,12 @@
     (define-key c-mode-base-map (kbd "M-?") 'rtags-display-summary)
 
     (setq rtags-use-helm t)
+    (setq rtags-track-container t)
 
     ;; Shutdown rdm when leaving emacs.
     (add-hook 'kill-emacs-hook 'rtags-quit-rdm)
+    (add-hook 'find-file-hook (lambda()(setq header-line-format (and (rtags-is-indexed)
+                                                                     '(:eval rtags-cached-current-container)))))
     ))
 
 ;; TODO: Has no coloring! How can I get coloring?
@@ -56,8 +60,17 @@
   )
 
 (use-package cmake-ide
+  :disabled t
   :config
   (cmake-ide-setup))
+
+
+(use-package srefactor
+  :config
+  (semantic-mode)
+  :bind
+  (:map c++-mode-map
+   ("M-RET" . srefactor-refactor-at-point)))
 
 (provide 'lang-c++)
 ;;; lang-c++.el ends here

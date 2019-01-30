@@ -1,11 +1,16 @@
 (use-package zenburn-theme
   :defer t
-  :disabled t
   :init
   (load-theme 'zenburn t))
 
+(use-package monokai-theme
+  :disabled t
+  :init
+  (load-theme 'monokai t))
+
 (use-package solarized-theme
   :defer t
+  :disabled t
   :init
   (load-theme 'solarized-dark t))
 

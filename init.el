@@ -12,7 +12,7 @@
 (package-initialize)
 
 (add-to-list 'load-path (concat user-emacs-directory "elisp"))
-(add-to-list 'load-path "~/local/share/emacs/site-lisp/rtags")
+;;(addpf-to-list 'load-path "~/local/share/emacs/site-lisp/rtags")
 
 (require 'base)
 (require 'base-theme)
@@ -22,4 +22,5 @@
 
 (require 'lang-python)
 (require 'lang-c++)
+
 (put 'downcase-region 'disabled nil)

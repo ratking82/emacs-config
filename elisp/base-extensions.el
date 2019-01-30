@@ -4,6 +4,8 @@
 
 (use-package company
   :config
+  (setq company-minimum-prefix-length 1)
+  (setq company-idle-delay 0.1)
   (add-hook 'after-init-hook 'global-company-mode))
 
 (use-package dashboard
@@ -118,7 +120,7 @@
   :config
   (setq org-directory "~/org"
         org-default-notes-file (concat org-directory "/refile.org")
-        org-agenda-files '("~/org/")
+        org-agenda-files '("~/org")
         org-log-into-drawer t
         org-log-done-with-time t
         org-cycle-separator-lines 0
@@ -382,7 +384,9 @@
   (setq projectile-switch-project-action #'projectile-dired)
   :config
   (setq projectile-mode-line '(:eval (format " Proj[%s]" (projectile-project-name))))
-  (projectile-global-mode))
+  (projectile-global-mode)
+  :bind
+  ("C-c p" . 'projectile-command-map))
 
 (use-package recentf
   :config
@@ -443,8 +447,9 @@
   (setq reftex-plug-into-AUCTeX t))
 
 (use-package org-brain
+  :defer 2
   :init
-  (setq org-brain-path "~/org/brain")
+  (setq org-brain-path "~/org")
   ;; For Evil users
   (with-eval-after-load 'evil
     (evil-set-initial-state 'org-brain-visualize-mode 'emacs))
@@ -461,17 +466,17 @@
 (use-package org-ref
   :defer t
   :init
-  (setq reftex-default-bibliography '("~/Dropbox/bibliography/references.bib"))
+  (setq reftex-default-bibliography '("~/bibliography/references.bib"))
 
   ;; see org-ref for use of these variables
-  (setq org-ref-bibliography-notes "~/Dropbox/bibliography/notes.org"
-        org-ref-default-bibliography '("~/Dropbox/bibliography/references.bib")
+  (setq org-ref-bibliography-notes "~/bibliography/notes.org"
+        org-ref-default-bibliography '("~/bibliography/references.bib")
         org-ref-pdf-directory "~/bibliography/bibtex-pdfs/")
 
   ;; For using helm-bibtex
-  (setq bibtex-completion-bibliography "~/Dropbox/bibliography/references.bib"
+  (setq bibtex-completion-bibliography "~/bibliography/references.bib"
         bibtex-completion-library-path "~/bibliography/bibtex-pdfs"
-        bibtex-completion-notes-path "~/Dropbox/bibliography/helm-bibtex-notes"))
+        bibtex-completion-notes-path "~/bibliography/helm-bibtex-notes"))
 
 (use-package openwith
   :config
@@ -566,5 +571,17 @@
   ("C-c t" . 'google-translate-smooth-translate))
 
 (use-package clang-format)
+
+(use-package origami
+  :config
+  (add-hook 'prog-mode-hook 'origami-mode))
+
+(use-package helpful
+  :bind
+  ("C-h f" . 'helpful-callable)
+  ("C-h v" . 'helpful-variable)
+  ("C-h k" . 'helpful-key))
+
+(use-package discover-my-major)
 
 (provide 'base-extensions)

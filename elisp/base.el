@@ -47,7 +47,7 @@
       x-select-enable-clipboard          t
       use-package-always-ensure          t
       use-package-compute-statistics     t
-      debug-on-error                     nil)
+      debug-on-error                     t)
 
 ;; Bookmarks
 (setq
@@ -103,6 +103,9 @@
 ;; Do not use TABS for indentation
 ;; Prefer spaces
 (setq-default indent-tabs-mode nil)
+
+;; Enable line numbers in prog modes
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
 (provide 'base)
 ;;; base ends here
