@@ -34,19 +34,22 @@
   :bind
   ("C-=" . er/expand-region))
 
-(use-package flycheck)
+(use-package flycheck
+  :diminish
+  :hook (prog-mode . global-flycheck-mode))
 
 (use-package helm
+  :diminish
   :init
   (require 'helm-config)
   :config
-  (setq helm-split-window-in-side-p t
+  (setq helm-split-window-inside-p t
         helm-split-window-default-side 'below
         helm-idle-delay 0.0
         helm-input-idle-delay 0.01
         helm-quick-update t
         helm-ff-skip-boring-files t)
-  (helm-mode 1)
+  (helm-mode)
   :bind (
          ;;("M-x" . helm-M-x)
          ("C-x C-m" . helm-M-x)
@@ -78,6 +81,7 @@
   (hlinum-activate))
 
 (use-package linum
+  :disabled
   :config
   (setq linum-format " %3d ")
   ;;(global-linum-mode nil)
@@ -133,16 +137,15 @@
                                org-info org-irc org-mhe org-rmail org-w3m)))
 
   (setq org-capture-templates
-        (quote
-         (("t" "todo" entry
-           (file "")
-           "* TODO %? \n%U\n" :clock-in t :clock-resume t)
-          ("n" "note" entry
-           (file "")
-           "* %? :NOTE:\n %U \n" :clock-in t :clock-resume t)
-          ("j" "Daily WorkLogs" entry
-           (file+datetree "dailylogs.org")
-           "* %?\n%U\n" :clock-in t :clock-resume t :tree-type week))))
+        '(("t" "todo" entry
+          (file "")
+          "* TODO %? \n%U\n" :clock-in t :clock-resume t)
+         ("n" "note" entry
+          (file "")
+          "* %? :NOTE:\n %U \n" :clock-in t :clock-resume t)
+         ("j" "Daily WorkLogs" entry
+          (file+datetree "dailylogs.org")
+          "* %?\n%U\n" :clock-in t :clock-resume t :tree-type week)))
 
   (setq org-todo-keywords
         (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
@@ -365,8 +368,12 @@
 (use-package org-projectile
   :config
   (org-projectile-per-project)
-  (setq org-projectile-per-project-filepath "todo.org"
-        org-agenda-files (append org-agenda-files (org-projectile-todo-files))))
+  (setq org-projectile-per-project-filepath "TODO.org"
+        org-projectile-capture-template (format "%s" "* TODO %?"))
+  (add-to-list 'org-capture-templates (org-projectile-project-todo-entry
+                  :capture-character "l"
+                  :capture-heading "Linked Project TODO"))
+        org-agenda-files (append org-agenda-files (org-projectile-todo-files)))
 
 (use-package org-bullets
   :config
@@ -383,8 +390,8 @@
         (expand-file-name "projectile-bookmarks.eld" temp-dir))
   (setq projectile-switch-project-action #'projectile-dired)
   :config
-  (setq projectile-mode-line '(:eval (format " Proj[%s]" (projectile-project-name))))
-  (projectile-global-mode)
+  (setq projectile-mode-line-function (lambda () (format " Proj[%s]" (projectile-project-name))))
+  (projectile-mode)
   :bind
   ("C-c p" . 'projectile-command-map))
 
@@ -395,8 +402,15 @@
 
 (use-package smartparens-config
   :ensure smartparens
+  :diminish smartparens-mode
   :config
-  (setq show-smartparens-global-mode t)
+  (smartparens-global-mode)
+  :bind
+  (:map smartparens-mode-map
+        ("C-)" . sp-forward-slurp-sexp)
+        ("C-}" . sp-forward-barf-sexp)
+        ("C-(" . sp-backward-slurp-sexp)
+        ("C-{" . sp-backward-barf-sexp))
   :hook
   ((prog-mode markdown-mode) . 'turn-on-smartparens-strict-mode))
 
@@ -408,14 +422,16 @@
   )
 
 (use-package undo-tree
+  :diminish
   :config
   ;; Remember undo history
   (setq
    undo-tree-auto-save-history nil
    undo-tree-history-directory-alist `(("." . ,(concat temp-dir "/undo/"))))
-  (global-undo-tree-mode 1))
+  (global-undo-tree-mode))
 
 (use-package which-key
+  :diminish
   :config
   (which-key-mode))
 
@@ -496,11 +512,11 @@
   :mode "CMakeLists\\.txt\\'" "\\.cmake\\'")
 
 (use-package whitespace
-  :diminish whitespace
+  :diminish
   :config
   (setq whitespace-style `(face empty tabs lines-tail trailing)
         whitespace-line-column 80)
-  (global-whitespace-mode t))
+  (global-whitespace-mode))
 
 (use-package markdown-mode
   :commands (markdown-mode gfm-mode)
@@ -510,7 +526,7 @@
 
 (use-package abbrev
   :ensure nil
-  :diminish abbrev-mode
+  :diminish
   :init
   (setq abbrev-file-name "~/.emacs.d/abbrev_defs")
   :config
@@ -518,13 +534,7 @@
   (setq-default abbrev-mode t))
 
 (use-package flyspell
-  :defer t
-  :diminish flyspell
-  ;; :init
-  ;; (progn
-  ;;   (add-hook 'prog-mode-hook 'flyspell-prog-mode)
-  ;;   (add-hook 'text-mode-hook 'flyspell-mode)
-  ;;   )
+  :diminish
   :config
   ;; Sets flyspell correction to use two-finger mouse click
   (define-key flyspell-mouse-map [down-mouse-3] #'flyspell-correct-word)
@@ -555,9 +565,8 @@
   (golden-ratio-mode 1))
 
 (use-package nyan-mode
-  :defer t
   :init
-  (nyan-mode 1))
+  (nyan-mode))
 
 (use-package google-this
   :defer t

@@ -47,7 +47,7 @@
       x-select-enable-clipboard          t
       use-package-always-ensure          t
       use-package-compute-statistics     t
-      debug-on-error                     t)
+      debug-on-error                     nil)
 
 ;; Bookmarks
 (setq
@@ -106,6 +106,22 @@
 
 ;; Enable line numbers in prog modes
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+
+;; Customise modeline
+(setq-default mode-line-format (list "%e" mode-line-front-space
+        mode-line-mule-info
+        mode-line-client
+        mode-line-modified
+        mode-line-remote
+        mode-line-frame-identification
+        mode-line-buffer-identification
+        "   "
+        mode-line-modes
+;; (vc-mode vc-mode)
+        "  "
+        mode-line-position
+        mode-line-misc-info
+        mode-line-end-spaces))
 
 (provide 'base)
 ;;; base ends here

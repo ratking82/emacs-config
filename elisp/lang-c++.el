@@ -18,15 +18,20 @@
     (define-key c-mode-base-map (kbd "M-.") 'rtags-find-symbol-at-point)
     (define-key c-mode-base-map (kbd "M-,") 'rtags-find-references-at-point)
     (define-key c-mode-base-map (kbd "M-?") 'rtags-display-summary)
+    (define-key c-mode-base-map (kbd "M-[") 'rtags-location-stack-back)
+    (define-key c-mode-base-map (kbd "M-]") 'rtags-location-stack-forward)
 
     (setq rtags-use-helm t)
     (setq rtags-track-container t)
 
     ;; Shutdown rdm when leaving emacs.
     (add-hook 'kill-emacs-hook 'rtags-quit-rdm)
-    (add-hook 'find-file-hook (lambda()(setq header-line-format (and (rtags-is-indexed)
-                                                                     '(:eval rtags-cached-current-container)))))
-    ))
+    (add-hook 'find-file-hook
+              (lambda () (setq header-line-format
+                                      (when (rtags-is-indexed)
+                                        '(:eval
+                                          rtags-cached-current-container)))))
+    (add-hook 'c++-mode-hook 'rtags-start-process-unless-running)))
 
 ;; TODO: Has no coloring! How can I get coloring?
 (use-package helm-rtags
