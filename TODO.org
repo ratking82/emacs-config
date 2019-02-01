@@ -1,0 +1,7 @@
+* TODO This is a todo
+* TODO Test [[file:~/.emacs.d/elisp/base-extensions.el::org-agenda-files%20(append%20org-agenda-files%20(org-projectile-todo-files)))][code]]
+* TODO Some thing about Ace Mode
+:PROPERTIES:
+:CREATED: [2019-02-01 Fri 09:25]
+:END:
+[[file:~/.emacs.d/elisp/base-extensions.el::(use-package%20ace-jump-mode][Ace mode]]
