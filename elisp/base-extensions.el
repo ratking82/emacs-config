@@ -365,15 +365,27 @@
   ("<f12>" . org-agenda)
   ("C-c c" . org-capture))
 
+(defvar sr:properties-string "
+:PROPERTIES:
+:CREATED: %U
+:END:")
+
 (use-package org-projectile
+  :after org
   :config
   (org-projectile-per-project)
   (setq org-projectile-per-project-filepath "TODO.org"
-        org-projectile-capture-template (format "%s" "* TODO %?"))
-  (add-to-list 'org-capture-templates (org-projectile-project-todo-entry
-                  :capture-character "l"
-                  :capture-heading "Linked Project TODO"))
-        org-agenda-files (append org-agenda-files (org-projectile-todo-files)))
+        org-projectile-capture-template (format "%s%s%s" "* TODO %?" sr:properties-string "\n%A\n")
+        )
+  (setq org-agenda-files (append org-agenda-files (org-projectile-todo-files)))
+  (add-to-list 'org-capture-templates
+               (org-projectile-project-todo-entry
+                :capture-character "l"
+                :capture-heading "Linked Project TODO"))
+  (add-to-list 'org-capture-templates
+               (org-projectile-project-todo-entry
+                :capture-character "p"))
+  )
 
 (use-package org-bullets
   :config
