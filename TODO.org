@@ -5,3 +5,16 @@
 :CREATED: [2019-02-01 Fri 09:25]
 :END:
 [[file:~/.emacs.d/elisp/base-extensions.el::(use-package%20ace-jump-mode][Ace mode]]
+* TODO Make org-projectile ask for project name when not in project
+:PROPERTIES:
+:CREATED: [2019-02-01 Fri 11:03]
+:END:
+
+Org projectile is setup to make a todo list for each repo for which
+projectile has a record. If I was using a single file to record all
+todos for projects then projectile creates a top level org heading
+with the projects name title and links it to the location of the
+project.
+
+- When capturing a project todo while not in a project, make
+  org-projectile ask for the name of a known projectile project.

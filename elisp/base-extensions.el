@@ -605,4 +605,7 @@
 
 (use-package discover-my-major)
 
+;; Better speedbar
+(use-package sr-speedbar)
+
 (provide 'base-extensions)
