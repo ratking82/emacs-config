@@ -3,10 +3,6 @@
 ;;; Contains my C/C++ mode configs
 
 ;;; Code:
-
-;; (require 'rtags)
-
-;; (c++-mode . 'rtags-start-process-unless-running)))
 (use-package rtags
   :commands 'rtags-start-process-unless-running
   :config

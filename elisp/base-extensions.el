@@ -424,7 +424,7 @@
         ("C-(" . sp-backward-slurp-sexp)
         ("C-{" . sp-backward-barf-sexp))
   :hook
-  ((prog-mode markdown-mode) . 'turn-on-smartparens-strict-mode))
+  ((prog-mode markdown-mode) . 'turn-on-smartparens-mode))
 
 (use-package smex
   :bind

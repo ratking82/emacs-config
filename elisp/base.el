@@ -47,7 +47,9 @@
       x-select-enable-clipboard          t
       use-package-always-ensure          t
       use-package-compute-statistics     t
-      debug-on-error                     nil)
+      debug-on-error                     nil
+      ;; Do not display the shell buffer if not output is present.
+      async-shell-command-display-buffer nil)
 
 ;; Bookmarks
 (setq
