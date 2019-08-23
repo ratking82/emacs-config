@@ -3,6 +3,8 @@
 ;;; Contains my C/C++ mode configs
 
 ;;; Code:
+(use-package clang-format)
+
 (use-package rtags
   :commands 'rtags-start-process-unless-running
   :config
