@@ -79,7 +79,9 @@
 (when (  fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 
-(show-paren-mode 1)
+;; Disable show-paren-mode
+;; Use smartparens instead
+;;(show-paren-mode t)
 
 ;; Delete trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
