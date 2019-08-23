@@ -405,7 +405,8 @@
   (setq projectile-mode-line-function (lambda () (format " Proj[%s]" (projectile-project-name))))
   (projectile-mode)
   :bind
-  ("C-c p" . 'projectile-command-map))
+  ("C-c p" . 'projectile-command-map)
+  ("<f5>" . 'projectile-compile-project))
 
 (use-package recentf
   :config
@@ -416,15 +417,20 @@
   :ensure smartparens
   :diminish smartparens-mode
   :config
-  (smartparens-global-mode)
   :bind
-  (:map smartparens-mode-map
-        ("C-)" . sp-forward-slurp-sexp)
-        ("C-}" . sp-forward-barf-sexp)
-        ("C-(" . sp-backward-slurp-sexp)
-        ("C-{" . sp-backward-barf-sexp))
+  ;; Disabled bindings as it led to mistakes while
+  ;; working in C++-mode. The bound functions do not behave as well
+  ;; as they do in, for example lisp mode.
+
+  ;; (:map smartparens-mode-map
+  ;;       ("C-)" . sp-forward-slurp-sexp)
+  ;;       ("C-}" . sp-forward-barf-sexp)
+  ;;       ("C-(" . sp-backward-slurp-sexp)
+  ;;       ("C-{" . sp-backward-barf-sexp))
   :hook
-  ((prog-mode markdown-mode) . 'turn-on-smartparens-mode))
+  (((prog-mode markdown-mode) . 'smartparens-mode)
+   ((prog-mode markdown-mode) . 'show-smartparens-mode))
+  )
 
 (use-package smex
   :bind
@@ -590,8 +596,6 @@
   :ensure google-translate
   :bind
   ("C-c t" . 'google-translate-smooth-translate))
-
-(use-package clang-format)
 
 (use-package origami
   :config
