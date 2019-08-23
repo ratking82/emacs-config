@@ -2,6 +2,10 @@
   :bind
   ("C-c SPC" . ace-jump-mode))
 
+
+;; Configure company to use rtags when its
+;; available. If not use clang.
+
 (use-package company
   :config
   (setq company-minimum-prefix-length 1)
@@ -70,10 +74,14 @@
   :config
   (helm-projectile-on))
 
+;; This is a very useful package
+;; for searching in current buffer
 (use-package helm-swoop
   :bind
   ("C-x c s" . helm-swoop))
 
+;; This is a very cool package
+;; to use with org files.
 (use-package helm-org-rifle)
 
 (use-package hlinum
@@ -412,6 +420,10 @@
   :config
   (setq recentf-save-file (recentf-expand-file-name "~/.emacs.d/private/cache/recentf"))
   (recentf-mode 1))
+
+
+;; Configure smartparens for c++ mode.
+;; Mainly, replace c-defun functions with good alt from smartparens
 
 (use-package smartparens-config
   :ensure smartparens
