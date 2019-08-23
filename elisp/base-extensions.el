@@ -606,6 +606,14 @@
 (use-package discover-my-major)
 
 ;; Better speedbar
-(use-package sr-speedbar)
+(use-package sr-speedbar
+  :config
+  (setq sr-speedbar-right-side nil
+        sr-speedbar-delete-windows nil
+        sr-speedbar-skip-other-window-p t
+        sr-speedbar-width 30
+        sr-speedbar-max-width 40)
+  :bind
+  ("s-s" . 'sr-speedbar-toggle))
 
 (provide 'base-extensions)
