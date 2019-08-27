@@ -8,7 +8,7 @@
 
 (use-package company
   :config
-  (setq company-minimum-prefix-length 1)
+  (setq company-minimum-prefix-length 2)
   (setq company-idle-delay 0.1)
   (add-hook 'after-init-hook 'global-company-mode))
 
@@ -18,6 +18,7 @@
                           (bookmarks . 5)
                           (projects . 5)
                           (agenda . 5)))
+  (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
   (dashboard-setup-startup-hook))
 
 (use-package ediff
@@ -77,6 +78,8 @@
 ;; This is a very useful package
 ;; for searching in current buffer
 (use-package helm-swoop
+  :config
+  (setq helm-swoop-split-direction 'split-window-horizontally)
   :bind
   ("C-x c s" . helm-swoop))
 
@@ -631,5 +634,10 @@
         sr-speedbar-max-width 40)
   :bind
   ("s-s" . 'sr-speedbar-toggle))
+
+;; Package updater
+;; Configure this to update packages at regular
+;; interval; 1 month??
+(use-package auto-package-update)
 
 (provide 'base-extensions)

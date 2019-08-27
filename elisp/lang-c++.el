@@ -19,7 +19,7 @@
     (define-key c-mode-base-map (kbd "M-[") 'rtags-location-stack-back)
     (define-key c-mode-base-map (kbd "M-]") 'rtags-location-stack-forward)
 
-    (setq rtags-use-helm t)
+    ;;(setq rtags-use-helm t)
     (setq rtags-track-container t)
 
     ;; Shutdown rdm when leaving emacs.
