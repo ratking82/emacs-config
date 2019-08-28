@@ -3,6 +3,9 @@
 ;;; Contains my C/C++ mode configs
 
 ;;; Code:
+(setq-default c-basic-offset 4)
+(add-hook 'c-mode-common-hook 'subword-mode)
+
 (use-package clang-format)
 
 (use-package rtags
@@ -43,7 +46,10 @@
     (setq rtags-autostart-diagnostics t)
     (rtags-diagnostics)
     (setq rtags-completions-enabled t)
-    (push 'company-rtags company-backends)))
+    (push 'company-rtags company-backends))
+  :bind
+  (:map c-mode-base-map
+        ([remap c-indent-line-or-region] . 'company-indent-or-complete-common)))
 
 ;; Live code checking.
 (use-package flycheck-rtags

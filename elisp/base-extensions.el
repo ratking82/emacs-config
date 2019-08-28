@@ -7,10 +7,18 @@
 ;; available. If not use clang.
 
 (use-package company
+  :init
+  (global-company-mode)
   :config
-  (setq company-minimum-prefix-length 2)
-  (setq company-idle-delay 0.1)
-  (add-hook 'after-init-hook 'global-company-mode))
+  (setq company-minimum-prefix-length 2
+        company-idle-delay 0.1
+        company-require-match nil
+        company-tooltip-align-annotations t
+        company-dabbrev-downcase 0
+        company-show-numbers t
+        company-transformers '(company-sort-by-occurrence))
+  :bind
+  (([remap completion-at-point] . 'company-complete-common)))
 
 (use-package dashboard
   :config
