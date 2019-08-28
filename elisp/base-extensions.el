@@ -131,10 +131,11 @@
   :bind
   ("<f8>" . 'neotree-toggle)
   :config
-  (setq neo-theme 'arrow
-        neo-smart-open t
-        neo-window-fixed-size nil
-        projectile-switch-project-action 'neotree-projectile-action)
+  (setq neo-smart-open t
+        neo-window-fixed-size t
+        ;;projectile-switch-project-action 'neotree-projectile-action
+        neo-autorefresh t
+        neo-toggle-window-keep-p t)
   ;; Disable linum for neotree
   ;;(add-hook 'neo-after-create-hook 'disable-neotree-hook)
   )
@@ -419,9 +420,9 @@
   :init
   (setq projectile-known-projects-file
         (expand-file-name "projectile-bookmarks.eld" temp-dir))
-  (setq projectile-switch-project-action #'projectile-dired)
+  (setq projectile-switch-project-action 'projectile-dired)
   :config
-  (setq projectile-mode-line-function (lambda () (format " Proj[%s]" (projectile-project-name))))
+  ;;(setq projectile-mode-line-function (lambda () (format " Proj[%s]" (projectile-project-name))))
   (projectile-mode)
   :bind
   ("C-c p" . 'projectile-command-map)
@@ -605,9 +606,6 @@
   :init
   (golden-ratio-mode 1))
 
-(use-package nyan-mode
-  :init
-  (nyan-mode))
 
 (use-package google-this
   :defer t

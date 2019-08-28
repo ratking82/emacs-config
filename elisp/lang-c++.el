@@ -44,7 +44,7 @@
   :config
   (progn
     (setq rtags-autostart-diagnostics t)
-    (rtags-diagnostics)
+    ;;(rtags-diagnostics)
     (setq rtags-completions-enabled t)
     (push 'company-rtags company-backends))
   :bind
