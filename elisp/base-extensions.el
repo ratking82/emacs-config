@@ -646,4 +646,6 @@
 ;; interval; 1 month??
 (use-package auto-package-update)
 
+(use-package minions
+  :config (minions-mode 1))
 (provide 'base-extensions)

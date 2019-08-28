@@ -32,7 +32,8 @@
     (setq doom-modeline-icon t
           doom-modeline-major-mode-icon nil
           doom-modeline-buffer-file-name-style 'relative-from-project
-          doom-modeline-buffer-encoding nil)
+          doom-modeline-buffer-encoding nil
+          doom-modeline-minor-modes (featurep 'minions))
     :hook ((after-init . doom-modeline-mode))
     )
   )
