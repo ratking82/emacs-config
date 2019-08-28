@@ -140,6 +140,7 @@
   ;;(add-hook 'neo-after-create-hook 'disable-neotree-hook)
   )
 
+
 (use-package org
   :config
   (setq org-directory "~/org"
@@ -648,4 +649,14 @@
 
 (use-package minions
   :config (minions-mode 1))
+(use-package magit-todos
+  :config (magit-todos-mode 1))
+
+(use-package rainbow-delimiters
+  :hook
+  (prog-mode . rainbow-delimiters-mode))
+
+(use-package paredit
+  :hook (emacs-lisp-mode eval-expression-minibuffer-setup lisp-mode lisp-interaction-mode) . 'eenable-paredit-mode)
+
 (provide 'base-extensions)
