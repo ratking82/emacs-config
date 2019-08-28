@@ -18,3 +18,12 @@ project.
 
 - When capturing a project todo while not in a project, make
   org-projectile ask for the name of a known projectile project.
+* TODO [#A] Refactor org mode setup
+:PROPERTIES:
+:CREATED: [2019-08-28 Wed 16:30]
+:END:
+[[file:~/.emacs.d/elisp/base-extensions.el][file]]
+
+The org-mode setup has become so complicated that it is difficult to
+understand what is going on. It needs to be simplified, maybe moved to
+it's own source file. This should have high priority.

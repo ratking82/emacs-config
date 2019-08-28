@@ -13,6 +13,8 @@
 
 (define-abbrev-table 'apropos-mode-abbrev-table '())
 
+(define-abbrev-table 'asm-mode-abbrev-table '())
+
 (define-abbrev-table 'awk-mode-abbrev-table
   '(
    ))
@@ -68,6 +70,8 @@
 (define-abbrev-table 'diary-mode-abbrev-table '())
 
 (define-abbrev-table 'diff-mode-abbrev-table '())
+
+(define-abbrev-table 'display-time-world-mode-abbrev-table '())
 
 (define-abbrev-table 'doctex-mode-abbrev-table '())
 
@@ -135,6 +139,7 @@
     ("cloid" "cloud" nil 1)
     ("configyre" "configure" nil 1)
     ("di" "do" nil 1)
+    ("difficutl" "difficult" nil 1)
     ("doen" "done" nil 1)
     ("donot" "do not" nil 1)
     ("featire" "feature" nil 1)
@@ -144,8 +149,10 @@
     ("hte" "the" nil 2)
     ("impprtant" "important" nil 1)
     ("in the" "int he" nil 0)
+    ("its" "it's" nil 1)
     ("iwht" "with" nil 1)
     ("laynch" "launch" nil 1)
+    ("mdoe" "mode" nil 1)
     ("meetng" "meetung" nil 1)
     ("meetung" "meeting" nil 1)
     ("metjod" "method" nil 1)
@@ -165,7 +172,7 @@
     ("swithc" "switch" nil 1)
     ("taks" "tasks" nil 2)
     ("teh" "the" nil 3)
-    ("the" "the" nil 539)
+    ("the" "the" nil 542)
     ("thihk" "think" nil 1)
     ("thius" "this" nil 1)
     ("thsi" "this" nil 2)
@@ -194,6 +201,8 @@
 (define-abbrev-table 'helm-major-mode-abbrev-table '())
 
 (define-abbrev-table 'helm-moccur-mode-abbrev-table '())
+
+(define-abbrev-table 'helm-occur-mode-abbrev-table '())
 
 (define-abbrev-table 'help-mode-abbrev-table '())
 
@@ -267,6 +276,8 @@
 
 (define-abbrev-table 'magit-submodule-list-mode-abbrev-table '())
 
+(define-abbrev-table 'magit-todos-list-mode-abbrev-table '())
+
 (define-abbrev-table 'makefile-automake-mode-abbrev-table '())
 
 (define-abbrev-table 'makefile-bsdmake-mode-abbrev-table '())
@@ -335,15 +346,19 @@
 
 (define-abbrev-table 'python-mode-abbrev-table '())
 
-(define-abbrev-table 'python-mode-skeleton-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'python-mode-skeleton-abbrev-table '())
+
+(define-abbrev-table 'reb-lisp-mode-abbrev-table '())
+
+(define-abbrev-table 'reb-mode-abbrev-table '())
 
 (define-abbrev-table 'rosbag-view-mode-abbrev-table '())
 
 (define-abbrev-table 'rst-mode-abbrev-table '())
 
 (define-abbrev-table 'rst-toc-mode-abbrev-table '())
+
+(define-abbrev-table 'rtags-asm-mode-abbrev-table '())
 
 (define-abbrev-table 'rtags-dependency-tree-mode-abbrev-table '())
 
@@ -358,6 +373,8 @@
 (define-abbrev-table 'rtags-references-tree-mode-abbrev-table '())
 
 (define-abbrev-table 'rtags-taglist-mode-abbrev-table '())
+
+(define-abbrev-table 'rxt-help-mode-abbrev-table '())
 
 (define-abbrev-table 'select-tags-table-mode-abbrev-table '())
 
@@ -397,10 +414,19 @@
 
 (define-abbrev-table 'use-package-statistics-mode-abbrev-table '())
 
+(define-abbrev-table 'vc-bzr-log-view-mode-abbrev-table '())
+
 (define-abbrev-table 'vc-git-log-edit-mode-abbrev-table '())
 
 (define-abbrev-table 'vc-git-log-view-mode-abbrev-table '())
 
 (define-abbrev-table 'vc-git-region-history-mode-abbrev-table '())
 
+(define-abbrev-table 'vc-hg-log-view-mode-abbrev-table '())
+
+(define-abbrev-table 'vc-mtn-log-view-mode-abbrev-table '())
+
+(define-abbrev-table 'vc-svn-log-view-mode-abbrev-table '())
+
 (define-abbrev-table 'xref--xref-buffer-mode-abbrev-table '())
+
