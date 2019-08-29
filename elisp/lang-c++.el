@@ -9,6 +9,7 @@
 (use-package clang-format)
 
 (use-package rtags
+  :disabled t
   :commands 'rtags-start-process-unless-running
   :config
   (progn
@@ -36,11 +37,13 @@
 
 ;; TODO: Has no coloring! How can I get coloring?
 (use-package helm-rtags
+  :disabled t
   :config
     (setq rtags-display-result-backend 'helm))
 
 ;; Use rtags for auto-completion.
 (use-package company-rtags
+  :disabled t
   :config
   (progn
     (setq rtags-autostart-diagnostics t)
@@ -53,6 +56,7 @@
 
 ;; Live code checking.
 (use-package flycheck-rtags
+  :disabled t
   :config
   (progn
     ;; ensure that we use only rtags checking

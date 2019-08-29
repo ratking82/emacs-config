@@ -27,3 +27,11 @@ project.
 The org-mode setup has become so complicated that it is difficult to
 understand what is going on. It needs to be simplified, maybe moved to
 it's own source file. This should have high priority.
+* TODO Configure lsp-ui
+:PROPERTIES:
+:CREATED: [2019-08-29 Thu 16:28]
+:END:
+[[file:~/.emacs.d/elisp/base-extensions.el][LSP-UI]]
+
+Configure lsp-ui to stop showing the annoying things signature
+messages when point is on a line.
