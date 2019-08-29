@@ -649,6 +649,7 @@
 
 (use-package minions
   :config (minions-mode 1))
+
 (use-package magit-todos
   :config (magit-todos-mode 1))
 
@@ -657,6 +658,13 @@
   (prog-mode . rainbow-delimiters-mode))
 
 (use-package paredit
-  :hook (emacs-lisp-mode eval-expression-minibuffer-setup lisp-mode lisp-interaction-mode) . 'eenable-paredit-mode)
+  :hook ((emacs-lisp-mode
+         eval-expression-minibuffer-setup
+         lisp-mode
+         lisp-interaction-mode) . 'enable-paredit-mode))
+
+;; Evil mode!
+;; Is this worth the effort? Let's find out!
+(use-package evil)
 
 (provide 'base-extensions)
