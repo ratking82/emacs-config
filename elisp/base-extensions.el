@@ -675,17 +675,30 @@
   :commands (lsp lsp-deferred)
   :config (setq lsp-auto-configure t
                 lsp-auto-guess-root t
-                lsp-log-io t)
-  :hook (c++-mode . lsp))
+                lsp-log-io t
+                ;; Do not use flymake
+                lsp-prefer-flymake nil
+                lsp-enable-xref t
+                ;; This can be annoying.
+                lsp-enable-on-type-formatting t
+                lsp-imenu-show-container-name t)
+  (setq lsp-clients-clangd-args '("-j=2" "-background-index" "-log=error"))
+  :hook (c++-mode . lsp-deferred))
 
 ;; Didnot like the C++ experience
+;; Hence sideline mode is disabled.
+(use-package lsp-ui
+  :config
+  (setq lsp-ui-sideline-enable nil)
+  :bind
+  (:map lsp-ui-mode-map
+        ([remap xref-find-definitions] . 'lsp-ui-peek-find-definitions)
+        ([remap xref-find-references] . 'lsp-ui-peek-find-references)))
 
-(use-package lsp-ui)
 (use-package company-lsp)
 (use-package helm-lsp)
 
 ;; Treemacs
-
 (use-package treemacs
   :ensure t
   :defer t
