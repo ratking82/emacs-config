@@ -113,6 +113,18 @@
 
 (define-abbrev-table 'eshell-mode-abbrev-table '())
 
+(define-abbrev-table 'evil-command-window-mode-abbrev-table '())
+
+(define-abbrev-table 'evil-list-view-mode-abbrev-table '())
+
+(define-abbrev-table 'eww-bookmark-mode-abbrev-table '())
+
+(define-abbrev-table 'eww-buffers-mode-abbrev-table '())
+
+(define-abbrev-table 'eww-history-mode-abbrev-table '())
+
+(define-abbrev-table 'eww-mode-abbrev-table '())
+
 (define-abbrev-table 'ffip-diff-mode-abbrev-table '())
 
 (define-abbrev-table 'flycheck-error-list-mode-abbrev-table '())
@@ -159,6 +171,7 @@
     ("mych" "much" nil 1)
     ("om" "on" nil 1)
     ("ot" "to" nil 2)
+    ("palce" "place" nil 1)
     ("powerd" "powered" nil 1)
     ("pt" "point" nil 3)
     ("pts" "points" nil 1)
@@ -172,7 +185,7 @@
     ("swithc" "switch" nil 1)
     ("taks" "tasks" nil 2)
     ("teh" "the" nil 3)
-    ("the" "the" nil 542)
+    ("the" "the" nil 548)
     ("thihk" "think" nil 1)
     ("thius" "this" nil 1)
     ("thsi" "this" nil 2)
@@ -241,6 +254,14 @@
 (define-abbrev-table 'lisp-mode-abbrev-table '())
 
 (define-abbrev-table 'log-edit-mode-abbrev-table '())
+
+(define-abbrev-table 'lsp-browser-mode-abbrev-table '())
+
+(define-abbrev-table 'lsp-log-io-mode-abbrev-table '())
+
+(define-abbrev-table 'lsp-ui-flycheck-list-mode-abbrev-table '())
+
+(define-abbrev-table 'lsp-ui-imenu-mode-abbrev-table '())
 
 (define-abbrev-table 'lua-mode-abbrev-table '())
 
@@ -402,6 +423,8 @@
 
 (define-abbrev-table 'tar-mode-abbrev-table '())
 
+(define-abbrev-table 'term-mode-abbrev-table '())
+
 (define-abbrev-table 'tetris-mode-abbrev-table '())
 
 (define-abbrev-table 'tex-mode-abbrev-table '())
@@ -409,6 +432,8 @@
 (define-abbrev-table 'tex-shell-abbrev-table '())
 
 (define-abbrev-table 'text-mode-abbrev-table '())
+
+(define-abbrev-table 'treemacs-mode-abbrev-table '())
 
 (define-abbrev-table 'url-cookie-mode-abbrev-table '())
 
@@ -429,4 +454,6 @@
 (define-abbrev-table 'vc-svn-log-view-mode-abbrev-table '())
 
 (define-abbrev-table 'xref--xref-buffer-mode-abbrev-table '())
+
+(define-abbrev-table 'xwidget-webkit-mode-abbrev-table '())
 

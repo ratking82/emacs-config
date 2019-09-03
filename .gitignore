@@ -56,4 +56,4 @@ flycheck_*.el
 /.last-package-update-day
 /.mc-lists.el
 /.lsp-session-v1
-/session.1043c6a3c21956336f15495515355724400000014270062
+/session.*
