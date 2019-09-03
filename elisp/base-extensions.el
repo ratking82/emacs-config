@@ -404,7 +404,7 @@
                 :capture-character "l"
                 :capture-heading "Linked Project TODO"))
   (add-to-list 'org-capture-templates
-               (org-projectile-project-todo-entry
+               (org-projectile-project-todo-completing-read
                 :capture-character "p"))
   )
 
