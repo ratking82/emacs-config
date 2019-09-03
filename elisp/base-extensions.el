@@ -17,8 +17,7 @@
         company-dabbrev-downcase 0
         company-show-numbers t
         company-transformers '(company-sort-by-occurrence))
-  :bind
-  (([remap completion-at-point] . 'company-complete-common)))
+  )
 
 (use-package dashboard
   :config
