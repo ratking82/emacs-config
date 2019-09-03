@@ -573,7 +573,7 @@
   :init
   (setq abbrev-file-name "~/.emacs.d/abbrev_defs")
   :config
-  (setq save-abbrevs t)
+  (setq save-abbrevs 'silently)
   (setq-default abbrev-mode t))
 
 (use-package flyspell
