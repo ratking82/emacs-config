@@ -10,8 +10,8 @@
   :init
   (global-company-mode)
   :config
-  (setq company-minimum-prefix-length 2
-        company-idle-delay 0.1
+  (setq company-minimum-prefix-length 3
+        company-idle-delay 0.2
         company-require-match nil
         company-tooltip-align-annotations t
         company-dabbrev-downcase 0
@@ -66,6 +66,7 @@
          ;;("M-x" . helm-M-x)
          ("C-x C-m" . helm-M-x)
          ("C-x C-f" . helm-find-files)
+         ("C-x b" . helm-buffers-list)
          ("C-x v" . helm-projectile)
          ("C-x c o" . helm-occur)
          ("C-x c p" . helm-projectile-ag)
@@ -401,11 +402,9 @@
   (add-to-list 'org-capture-templates
                (org-projectile-project-todo-entry
                 :capture-character "l"
-                :capture-heading "Linked Project TODO"))
-  (add-to-list 'org-capture-templates
-               (org-projectile-project-todo-completing-read
-                :capture-character "p"))
-  )
+                :capture-heading "Linked Project TODO")
+               )
+  :bind ("C-x p t" . org-projectile-project-todo-completing-read))
 
 (use-package org-bullets
   :config
@@ -674,7 +673,7 @@
   :commands (lsp lsp-deferred)
   :config (setq lsp-auto-configure t
                 lsp-auto-guess-root t
-                lsp-log-io t
+                lsp-log-io nil
                 ;; Do not use flymake
                 lsp-prefer-flymake nil
                 lsp-enable-xref t
@@ -688,7 +687,8 @@
 ;; Hence sideline mode is disabled.
 (use-package lsp-ui
   :config
-  (setq lsp-ui-sideline-enable nil)
+  (setq lsp-ui-sideline-enable nil
+        lsp-ui-flycheck-enable t)
   :bind
   (:map lsp-ui-mode-map
         ([remap xref-find-definitions] . 'lsp-ui-peek-find-definitions)

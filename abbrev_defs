@@ -11,6 +11,8 @@
 
 (define-abbrev-table 'TeX-output-mode-abbrev-table '())
 
+(define-abbrev-table 'TeX-special-mode-abbrev-table '())
+
 (define-abbrev-table 'apropos-mode-abbrev-table '())
 
 (define-abbrev-table 'asm-mode-abbrev-table '())
@@ -27,11 +29,15 @@
 
 (define-abbrev-table 'c++-mode-abbrev-table
   '(
+    ("cosnt" "const" nil 5)
+    ("usging" "using" nil 1)
    ))
 
 (define-abbrev-table 'c-mode-abbrev-table
   '(
    ))
+
+(define-abbrev-table 'calc-trail-mode-abbrev-table '())
 
 (define-abbrev-table 'calendar-mode-abbrev-table '())
 
@@ -149,11 +155,12 @@
     ("allowr" "allow" nil 1)
     ("capturong" "capturing" nil 1)
     ("cloid" "cloud" nil 1)
+    ("clsoe" "close" nil 1)
     ("configyre" "configure" nil 1)
     ("di" "do" nil 1)
     ("difficutl" "difficult" nil 1)
     ("doen" "done" nil 1)
-    ("donot" "do not" nil 1)
+    ("donot" "do not" nil 6)
     ("featire" "feature" nil 1)
     ("fillowing" "following" nil 1)
     ("followong" "following" nil 1)
@@ -161,31 +168,35 @@
     ("hte" "the" nil 2)
     ("impprtant" "important" nil 1)
     ("in the" "int he" nil 0)
-    ("its" "it's" nil 1)
+    ("its" "it's" nil 8)
     ("iwht" "with" nil 1)
+    ("lable" "label" nil 1)
     ("laynch" "launch" nil 1)
     ("mdoe" "mode" nil 1)
     ("meetng" "meetung" nil 1)
     ("meetung" "meeting" nil 1)
     ("metjod" "method" nil 1)
     ("mych" "much" nil 1)
+    ("ofr" "for" nil 1)
     ("om" "on" nil 1)
-    ("ot" "to" nil 2)
+    ("ot" "to" nil 3)
     ("palce" "place" nil 1)
     ("powerd" "powered" nil 1)
-    ("pt" "point" nil 3)
-    ("pts" "points" nil 1)
+    ("pt" "point" nil 8)
+    ("pts" "points" nil 15)
     ("regiosn" "regions" nil 1)
     ("retunr" "return" nil 1)
     ("sates" "states" nil 1)
     ("shiwup" "showup" nil 1)
     ("si" "is" nil 1)
-    ("st" "such that" nil 1)
+    ("smae" "same" nil 1)
+    ("st" "such that" nil 2)
+    ("stnading" "standing" nil 1)
     ("surce" "source" nil 1)
     ("swithc" "switch" nil 1)
     ("taks" "tasks" nil 2)
     ("teh" "the" nil 3)
-    ("the" "the" nil 548)
+    ("the" "the" nil 685)
     ("thihk" "think" nil 1)
     ("thius" "this" nil 1)
     ("thsi" "this" nil 2)
@@ -197,8 +208,9 @@
     ("whya" "why" nil 1)
     ("wirtten" "written " nil 1)
     ("workshiop" "workshop" nil 1)
-    ("woth" "with" nil 1)
+    ("woth" "with" nil 3)
     ("wrt" "with respect to" nil 3)
+    ("wsa" "was" nil 1)
    ))
 
 (define-abbrev-table 'gnus-group-mode-abbrev-table '())
@@ -365,9 +377,18 @@
 
 (define-abbrev-table 'prog-mode-abbrev-table '())
 
-(define-abbrev-table 'python-mode-abbrev-table '())
+(define-abbrev-table 'python-mode-abbrev-table
+  '(
+    ("foramt" "format" nil 1)
+    ("pritn" "print" nil 31)
+    ("slef" "self" nil 1)
+   ))
 
-(define-abbrev-table 'python-mode-skeleton-abbrev-table '())
+(define-abbrev-table 'python-mode-skeleton-abbrev-table
+  '(
+   ))
+
+(define-abbrev-table 'quickurl-list-mode-abbrev-table '())
 
 (define-abbrev-table 'reb-lisp-mode-abbrev-table '())
 
